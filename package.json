@@ -1,0 +1,27 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "The Discord bot for the Caards server.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "devStart": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caards/discord-bot.git"
+  },
+  "author": "Marco <me@marco.win>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/caards/discord-bot/issues"
+  },
+  "homepage": "https://github.com/caards/discord-bot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord-buttons": "^3.2.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
