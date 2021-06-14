@@ -52,6 +52,7 @@ let embed;
 
 module.exports = {
     name: "info",
+    description: "Returns info about the website, server and bot.",
     guildOnly: false,
     execute: async (message, args, client) => {
         embed = new MessageEmbed()
