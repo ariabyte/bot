@@ -3,7 +3,7 @@ module.exports = async (client, message) => {
 
     if (message.content.startsWith("<@840643680758136902>") || message.content.startsWith("<@!840643680758136902>")) return message.reply("my prefix is `c!`.");
 
-    if (!message.startsWith(process.env.PREFIX)) {
+    if (!message.content.startsWith(process.env.PREFIX)) {
         if (message.channel.id === "862672966416072714") {
             message.react("👍");
             message.react("👎");
