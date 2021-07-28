@@ -1,0 +1,6 @@
+{
+    "log": {
+        "loggingLevel": "info",
+        "timeFormat": "D.M.YYYY. H:mm:ss.SSS",
+        "locale": "de-DE"
+}
