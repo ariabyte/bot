@@ -1,11 +1,11 @@
 const crosspost = require("../modules/Crosspost.js");
 
 module.exports = async (client, message) => {
+    if (message.channel.type === 'news') crosspost(message);
     if (message.author.bot) return;
 
     if (message.content.startsWith("<@840643680758136902>") || message.content.startsWith("<@!840643680758136902>")) return message.reply("my prefix is `c!`.");
 
-    if (message.channel.type === 'news') crosspost(message);
     if (!message.content.startsWith(process.env.PREFIX)) {
         if (message.channel.id === "862672966416072714") {
             message.react("👍");
