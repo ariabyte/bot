@@ -8,7 +8,7 @@ const
 	{ spam } = require('../log.json');
 
 const
-	blacklistFile = './b.json',
+	blacklistFile = '../b.json',
 	blacklist = require(`.${blacklistFile}`),
 	blacklistQueue = new PQueue({ concurrency: 1 }),
 	spamReportedGuilds = new Map(),
