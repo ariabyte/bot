@@ -16,7 +16,7 @@ async function crosspost(message) {
 		{
 			method: 'POST',
 			headers: {
-				'Authorization': `${bot.rest.tokenPrefix} ${process.env.BOT_TOKEN}`,
+				'Authorization': `${bot.rest.tokenPrefix} ${process.env.TOKEN}`,
 			},
 		},
 	)
