@@ -19,9 +19,14 @@
   "homepage": "https://github.com/caards/discord-bot#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "chalk": "^4.1.1",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.7"
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "p-queue": "^7.1.0",
+    "url-regex-safe": "^2.0.2"
   }
 }

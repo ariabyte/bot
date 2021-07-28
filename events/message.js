@@ -1,17 +1,17 @@
-const crosspost = require("../modules/Crosspost.js
+const crosspost = require("../modules/Crosspost.js");
 
 module.exports = async (client, message) => {
     if (message.author.bot) return;
 
     if (message.content.startsWith("<@840643680758136902>") || message.content.startsWith("<@!840643680758136902>")) return message.reply("my prefix is `c!`.");
 
+    if (message.channel.type === 'news') crosspost(message);
     if (!message.content.startsWith(process.env.PREFIX)) {
         if (message.channel.id === "862672966416072714") {
             message.react("👍");
             message.react("👎");
         } else return;
     }
-	if (message.channel.type === 'news') crosspost(message);
 
     const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);
     var command = client.commands.get(args.shift().toLowerCase());
