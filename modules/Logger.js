@@ -1,7 +1,7 @@
 const
 	chalk = require('chalk'),
 	moment = require('moment'),
-	{ log } = require('../config.json');
+	{ log } = require('../log.json');
 
 exports.log = (content, type = 'log') => {
 	const levels = ['info', 'log', 'debug'];
