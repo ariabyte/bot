@@ -1,0 +1,14 @@
+{
+    "log": {
+        "loggingLevel": "info",
+        "timeFormat": "D.M.YYYY. H:mm:ss.SSS",
+        "locale": "de-DE"
+
+        "monitoringEnabled": false,
+        "autoLeave": false,
+        "messagesHourlyLimit": 40,
+        "spamChannelsThreshold": 4,
+        "cacheExpirationHours": 12
+    }
+}
+
