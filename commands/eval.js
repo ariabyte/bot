@@ -3,6 +3,7 @@ const { inspect } = require('util');
 
 module.exports = {
     name: "eval",
+    noshow: true,
     execute: async (message, args, client) => {
         if (message.author.id != "705080774113886238") return;
 

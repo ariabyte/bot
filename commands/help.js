@@ -10,7 +10,7 @@ module.exports = {
             .setTitle("Help");
     
         for (const command of client.commands) {
-            embed.addField(command[1].name, command[1].description, true);
+            if (!command[1].noshow) embed.addField(command[1].name, command[1].description, true);
         }
 
         message.channel.send(embed);

@@ -80,16 +80,19 @@ module.exports = {
 }
 
 const websiteInfo = async (m) => {
-    const api = await instance.get("https://api.caards.me/user/get/marco");
+    const api = await instance.get("https://api.caards.me/");
+    const stats = await instance.get("https://api.caards.me/utils/stats");
     const website = await instance.get("https://www.caards.me/");
     const beta = await instance.get("https://beta.caards.me/");
+    const status = await instance.get("https://status.caards.me/api/get");
     
     embed = new MessageEmbed()
         .setTitle("Website Info")
         .setColor("#90a7c4")
-        .addField("API response time", "```" + api.headers['request-duration'] + "ms ```", true)
-        .addField("Website response time", "```" + website.headers['request-duration'] + "ms ```", true)
-        .addField("Beta Website response time", "```" + beta.headers['request-duration'] + "ms ```", true);
+        .addField("API response time", api.headers['request-duration'] + "ms", true)
+        .addField("Website response time", website.headers['request-duration'] + "ms", true)
+        .addField("Registered users", + stats.data.users, true)
+        .addField("System status", (status?.data?.lastUpdate?.allOperational ? "<:online:880128377628024843> All system operational!" : "<:offline:880128467688120441> [Something is not working](https://status.caards.me)"), true);
     
     m.edit({ component: buttonRow, embed: embed });
 };
