@@ -5,7 +5,7 @@ module.exports = {
     name: "eval",
     noshow: true,
     execute: async (message, args, client) => {
-        if (message.author.id != "705080774113886238") return;
+        if (message.author.id != "181123399219675136") return;
 
         let toEval = clean(args.join(" "));
         try {
