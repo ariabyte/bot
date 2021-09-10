@@ -21,6 +21,8 @@ module.exports = {
         .setName('info')
         .setDescription('Shows info about the ariabyte server and projects.'),
     async execute(interaction) {
+        await interaction.deferReply();
+        
         const cApi = await instance.get("https://api.caards.me/");
         const nRedirect = await instance.get("https://noice.link/discord");
         const nStats = await instance.get("https://noice.link/info/json");
@@ -49,6 +51,6 @@ module.exports = {
                 true
             );
 
-        interaction.reply({ embeds: [embed], ephemeral: true });
+        interaction.editReply({ embeds: [embed], ephemeral: true });
     },
 };

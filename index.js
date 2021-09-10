@@ -1,10 +1,10 @@
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const crosspost = require('./helpers/crosspost');
 
 const { token, welcomeId, guildId } = require('./config.json');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 
 client.commands = new Collection();
 client.cooldowns = new Collection();
@@ -18,18 +18,6 @@ for (const file of commandFiles) {
 client.once('ready', () => {
     client.user.setPresence({ activities: [{ name: "code 😎", type: 2 }] });
     console.log('Ready!');
-});
-
-client.on("guildMemberAdd", (m) => {
-    if (m.guild.id != guildId) return;
-
-    const embed = new Discord.MessageEmbed()
-        .setColor("#00ff00")
-        .setDescription(`Hi <@${member.user.id}>!\nWe're happy you joined! Make sure to read <#845004813082034246> to see what this server is all about!`)
-        .setAuthor(member.user.username, member.user.displayAvatarURL({ dynamic: true }))
-        .setTimestamp();
-
-    client.channels.cache.get(welcomeId)?.send({ content: `<@${member.user.id}>`, embed: embed });
 });
 
 client.on('interactionCreate', async interaction => {
@@ -46,15 +34,27 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.on("message", (m) => {
+client.on("message", async (m) => {
+    if (m.author.bot) return;
+
     if (m.channel.type === "GUILD_NEWS") crosspost(m);
-    if (m.channel.id === "862672966416072714") {
-        message.react("👍");
-        message.react("👎");
-        m.startThread({
+    if (m.channel.id === "871035982034636880") {
+        m.delete();
+        
+        const embed = new MessageEmbed()
+            .setColor("#ff004e")
+            .setTitle("Suggestion: ")
+            .setDescription(m.content)
+            .setAuthor(m.author.tag, m.author.displayAvatarURL({ dynamic: true }));
+        
+        let message = await m.channel.send({ embeds: [embed] });
+        
+        message.react("856573843186647080");
+        message.react("856573943091822603");
+        message.startThread({
             name: "Discussion"
         });
-    } else return;
+    }
 });
 
 client.login(token);
