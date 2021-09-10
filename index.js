@@ -38,7 +38,7 @@ client.on("message", async (m) => {
     if (m.author.bot) return;
 
     if (m.channel.type === "GUILD_NEWS") crosspost(m);
-    if (m.channel.id === "871035982034636880") {
+    if (m.channel.id === "862672966416072714") {
         m.delete();
         
         const embed = new MessageEmbed()
