@@ -48,6 +48,13 @@ client.on('interactionCreate', async interaction => {
 
 client.on("message", (m) => {
     if (m.channel.type === "GUILD_NEWS") crosspost(m);
+    if (m.channel.id === "862672966416072714") {
+        message.react("👍");
+        message.react("👎");
+        m.startThread({
+            name: "Discussion"
+        });
+    } else return;
 });
 
 client.login(token);
