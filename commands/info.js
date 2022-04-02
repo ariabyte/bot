@@ -28,6 +28,7 @@ module.exports = {
         const nStats = await instance.get("https://noice.link/info/json");
         const cStats = await instance.get("https://api.caards.me/utils/stats");
         const cStatus = await instance.get("https://status.caards.me/api/get");
+        const aStats = await instance.get("https://ask.rip/api/info");
 
         const embed = new MessageEmbed()
             .setTitle("Info")
@@ -43,6 +44,11 @@ module.exports = {
                 `• Redirect time: **${nRedirect.headers['request-duration'] + "ms"}**
                 • Registered users: **${nStats.data.users}**
                 • Links: **${nStats.data.links}**`,
+                true
+            ).addField(
+                "ask.rip",
+                `• Registered users: **${aStats.data.users}**
+                • Response time: **${aStats.headers['request-duration']}**`,
                 true
             ).addField(
                 "Discord server",
