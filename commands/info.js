@@ -48,7 +48,7 @@ module.exports = {
             ).addField(
                 "ask.rip",
                 `• Registered users: **${aStats.data.users}**
-                • Response time: **${aStats.headers['request-duration']}**`,
+                • Response time: **${aStats.headers['request-duration']}ms**`,
                 true
             ).addField(
                 "Discord server",
