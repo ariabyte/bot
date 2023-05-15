@@ -24,8 +24,8 @@ module.exports = {
         await interaction.deferReply();
         
         const cApi = await instance.get("https://api.caards.me/");
-        const nRedirect = await instance.get("https://noice.link/discord");
-        const nStats = await instance.get("https://noice.link/info/json");
+        // const nRedirect = await instance.get("https://noice.link/discord");
+        // const nStats = await instance.get("https://noice.link/info/json");
         const cStats = await instance.get("https://api.caards.me/utils/stats");
         const cStatus = await instance.get("https://status.caards.me/api/get");
         const aStats = await instance.get("https://ask.rip/api/info");
@@ -41,9 +41,7 @@ module.exports = {
                 true
             ).addField(
                 "noice.link",
-                `• Redirect time: **${nRedirect.headers['request-duration'] + "ms"}**
-                • Registered users: **${nStats.data.users}**
-                • Links: **${nStats.data.links}**`,
+                `🪦 RIP noice.link :(\n`,
                 true
             ).addField(
                 "ask.rip",
