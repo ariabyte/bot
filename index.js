@@ -51,9 +51,11 @@ client.on("message", async (m) => {
         
         message.react("856573843186647080");
         message.react("856573943091822603");
-        message.startThread({
-            name: "Discussion"
+        let thread = await message.startThread({
+            name: "Discussion",
+            startMessage: "This thread is for discussing the suggestion " + m.author.toString() + " made."
         });
+        await thread.members.add(m.author.id);
     }
 });
 
